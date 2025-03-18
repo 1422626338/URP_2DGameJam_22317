@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 14f;
     [SerializeField] LayerMask groundLayer; //地面图层
 
+    [Header("血量控制")]
+    public HealthBarTimer healthBarTimer; // 拖入挂载HealthBarTimer的对象
+
     // 组件引用
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -69,6 +72,18 @@ public class PlayerController : MonoBehaviour
         //Vector2 targetVelocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         //rb.velocity = Vector2.Lerp(rb.velocity, targetVelocity, Time.fixedDeltaTime * 10);  //使用Lerp，可以更改
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("电池"))
+        {
+            // 增加血量（例如恢复10秒）
+            healthBarTimer.AddTime(10f);
+
+            // 销毁电池对象
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnDrawGizmos()
