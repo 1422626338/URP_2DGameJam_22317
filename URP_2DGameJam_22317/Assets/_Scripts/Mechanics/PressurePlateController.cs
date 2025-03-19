@@ -1,9 +1,11 @@
 using UnityEngine;
-
+/// <summary>
+/// 添加箱子在压力板上时，只需要检测箱子的标签Tag
+/// </summary>
 public class PressurePlateController : MonoBehaviour
 {
     public Transform door; // 拖入门对象
-    //public float doorMoveDistance = 3f; // 门移动距离
+
     public Transform targetPosition;    //门要移动的位置
     public float moveSpeed = 2f; // 移动速度
     public float plateMoveOffset = 0.1f; // 压力板下移距离
@@ -20,7 +22,7 @@ public class PressurePlateController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.CompareTag("Player1") || other.CompareTag("Player2")))
+        if (other.CompareTag("Player") )
         {
             isPressed = true;
         }
@@ -28,7 +30,7 @@ public class PressurePlateController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if ((other.CompareTag("Player1") || other.CompareTag("Player2")))
+        if (other.CompareTag("Player") )
         {
             isPressed = false;
         }
@@ -41,7 +43,7 @@ public class PressurePlateController : MonoBehaviour
         Vector3 targetPlatePos = isPressed ? plateInitialPos + Vector3.down * plateMoveOffset : plateInitialPos;
 
         // 平滑移动门和压力板
-        door.position = Vector3.MoveTowards(door.position, targetDoorPos, moveSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, targetPlatePos, moveSpeed * Time.deltaTime);
+        door.position = Vector3.MoveTowards(door.position, targetDoorPos, moveSpeed * Time.deltaTime);              //机关管移至目标处
+        transform.position = Vector3.MoveTowards(transform.position, targetPlatePos, moveSpeed * Time.deltaTime);   //压力板本身下移
     }
 }
