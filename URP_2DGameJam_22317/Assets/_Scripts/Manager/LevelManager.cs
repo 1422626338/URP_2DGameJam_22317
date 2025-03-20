@@ -13,7 +13,6 @@ public class LevelManager : SingletonMono<LevelManager>
     
     public void SetPlayerPoint(Vector2 p1Point , Vector2 p2Point)
     {
-        Debug.Log("test");
         p1.transform.position = p1Point;
         p2.transform.position = p2Point;
     }

@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Íæ¼ÒÀàĞÍÃ¶¾Ù
+    // ç©å®¶ç±»å‹æšä¸¾
     public enum PlayerType { Player1, Player2 }
     public PlayerType playerType;
 
-    // ÒÆ¶¯²ÎÊı
+    // ç§»åŠ¨å‚æ•°
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpForce = 14f;
-    [SerializeField] LayerMask groundLayer; //µØÃæÍ¼²ã
+    [SerializeField] LayerMask groundLayer; //åœ°é¢å›¾å±‚
 
-    [Header("ÑªÁ¿¿ØÖÆ")]
-    public HealthBarTimer healthBarTimer; // ÍÏÈë¹ÒÔØHealthBarTimerµÄ¶ÔÏó
+    [Header("è¡€é‡æ§åˆ¶")]
+    public HealthBarTimer healthBarTimer; // æ‹–å…¥æŒ‚è½½HealthBarTimerçš„å¯¹è±¡
 
-    // ×é¼şÒıÓÃ
+    // ç»„ä»¶å¼•ç”¨
     private Rigidbody2D rb;
     private bool isGrounded;
     private float horizontalInput;
@@ -29,14 +29,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // µØÃæ¼ì²â£¨Ê¹ÓÃÔ²ĞÎÉäÏß¼ì²â£©
+        // åœ°é¢æ£€æµ‹ï¼ˆä½¿ç”¨åœ†å½¢å°„çº¿æ£€æµ‹ï¼‰
         isGrounded = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.6f, groundLayer);
 
-        // ÊäÈë´¦Àí
+        // è¾“å…¥å¤„ç†
         HandleInput();
 
-        // ÒÆ¶¯´¦Àí
+        // ç§»åŠ¨å¤„ç†
         MoveCharacter();
+
+        //äº¤äº’æ£€æµ‹
+       
     }
     void FixedUpdate()
     {
@@ -68,26 +71,37 @@ public class PlayerController : MonoBehaviour
 
     void MoveCharacter()
     {
-        // Æ½»¬ÒÆ¶¯
+        // å¹³æ»‘ç§»åŠ¨
         //Vector2 targetVelocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-        //rb.velocity = Vector2.Lerp(rb.velocity, targetVelocity, Time.fixedDeltaTime * 10);  //Ê¹ÓÃLerp£¬¿ÉÒÔ¸ü¸Ä
+        //rb.velocity = Vector2.Lerp(rb.velocity, targetVelocity, Time.fixedDeltaTime * 10);  //ä½¿ç”¨Lerpï¼Œå¯ä»¥æ›´æ”¹
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("µç³Ø"))
+        if (collision.CompareTag("ç”µæ± "))
         {
-            // Ôö¼ÓÑªÁ¿£¨ÀıÈç»Ö¸´10Ãë£©
+            // å¢åŠ è¡€é‡ï¼ˆä¾‹å¦‚æ¢å¤10ç§’ï¼‰
             healthBarTimer.AddTime(10f);
 
-            // Ïú»Ùµç³Ø¶ÔÏó
+            // é”€æ¯ç”µæ± å¯¹è±¡
             Destroy(collision.gameObject);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+       
     }
 
     private void OnDrawGizmos()
     {
         
     }
+
 }
