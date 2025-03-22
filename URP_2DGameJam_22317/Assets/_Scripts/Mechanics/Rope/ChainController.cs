@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 public class ChainController : MonoBehaviour
 {
     [Header("锁链对象（Transform）")]
@@ -8,53 +7,76 @@ public class ChainController : MonoBehaviour
     public Transform chain2;  // 锁链2
 
     [Header("平台检测器")]
-    public PlatformDetector detector1; // 挂在锁链1底部平台上的检测器
-    public PlatformDetector detector2; // 挂在锁链2底部平台上的检测器
+    public PlatformDetector detector1; // 挂在链条1平台上的检测器
+    public PlatformDetector detector2; // 挂在链条2平台上的检测器
 
     [Header("运动参数")]
     public float moveSpeed = 2f; // 运动速度
 
-    [Header("位置限制")]
-    public float chain1MinY; // 锁链1最低位置（例如：-3）
-    public float chain1MaxY; // 锁链1最高位置（例如：0）
-    public float chain2MinY; // 锁链2最低位置（例如：0）
-    public float chain2MaxY; // 锁链2最高位置（例如：3）
+    [Header("边界参考点")]
+    public Transform chain1UpperBoundary; // 链条1允许的上边界
+    public Transform chain1LowerBoundary; // 链条1允许的下边界
+    public Transform chain2UpperBoundary; // 链条2允许的上边界
+    public Transform chain2LowerBoundary; // 链条2允许的下边界
 
-    [Header("位置")]
-    public Transform chainAMinY;
-    public Transform chainAMaxY;
-    public Transform chainBMinY;
-    public Transform chainBMaxY;
+    // 自动计算的平衡目标（不需要在 Inspector 中设置）
+    private float chain1BalancedY;
+    private float chain2BalancedY;
+
+    void Start()
+    {
+        // 自动计算平衡目标位置
+        chain1BalancedY = (chain1UpperBoundary.position.y + chain1LowerBoundary.position.y) / 2f;
+        chain2BalancedY = (chain2UpperBoundary.position.y + chain2LowerBoundary.position.y) / 2f;
+    }
 
     void Update()
     {
-        // 只有 detector1 检测到碰撞体而 detector2 没有检测到时：
+        float delta = moveSpeed * Time.deltaTime;
+
+        // 情况1：只有 detector1 检测到角色（让 chain1 向下、chain2 向上）
         if (detector1.hasPlayer && !detector2.hasPlayer)
         {
-            // 计算本帧移动距离
-            float delta = moveSpeed * Time.deltaTime;
-
-            // chain1 下降，但不低于最低位置
-            float newChain1Y = Mathf.Max(chain1.position.y - delta, chainAMinY.position.y);
-            // chain2 上升，但不高于最高位置
-            float newChain2Y = Mathf.Min(chain2.position.y + delta, chainBMaxY.position.y);
-
-            chain1.position = new Vector3(chain1.position.x, newChain1Y, chain1.position.z);
-            chain2.position = new Vector3(chain2.position.x, newChain2Y, chain2.position.z);
+            // 检查运动前是否未超出边界
+            if (chain1.position.y > chain1LowerBoundary.position.y && chain2.position.y < chain2UpperBoundary.position.y)
+            {
+                float newChain1Y = Mathf.Max(chain1.position.y - delta, chain1LowerBoundary.position.y);
+                float newChain2Y = Mathf.Min(chain2.position.y + delta, chain2UpperBoundary.position.y);
+                chain1.position = new Vector3(chain1.position.x, newChain1Y, chain1.position.z);
+                chain2.position = new Vector3(chain2.position.x, newChain2Y, chain2.position.z);
+            }
         }
-        // 只有 detector2 检测到碰撞体而 detector1 没有检测到时：
+        // 情况2：只有 detector2 检测到角色（让 chain2 向下、chain1 向上）
         else if (!detector1.hasPlayer && detector2.hasPlayer)
         {
-            float delta = moveSpeed * Time.deltaTime;
-
-            // chain2 下降，但不低于最低位置
-            float newChain2Y = Mathf.Max(chain2.position.y - delta, chainBMinY.position.y);
-            // chain1 上升，但不高于最高位置
-            float newChain1Y = Mathf.Min(chain1.position.y + delta, chainAMaxY.position.y);
-
-            chain2.position = new Vector3(chain2.position.x, newChain2Y, chain2.position.z);
-            chain1.position = new Vector3(chain1.position.x, newChain1Y, chain1.position.z);
+            if (chain2.position.y > chain2LowerBoundary.position.y && chain1.position.y < chain1UpperBoundary.position.y)
+            {
+                float newChain2Y = Mathf.Max(chain2.position.y - delta, chain2LowerBoundary.position.y);
+                float newChain1Y = Mathf.Min(chain1.position.y + delta, chain1UpperBoundary.position.y);
+                chain2.position = new Vector3(chain2.position.x, newChain2Y, chain2.position.z);
+                chain1.position = new Vector3(chain1.position.x, newChain1Y, chain1.position.z);
+            }
         }
-        // 当两个平台都检测到或都没有检测到时，不改变位置
+        // 情况3：两个平台都有角色时，向平衡目标位置运动
+        else if (detector1.hasPlayer && detector2.hasPlayer)
+        {
+            // 调整 chain1 朝向 chain1BalancedY 运动
+            if (Mathf.Abs(chain1.position.y - chain1BalancedY) > 0.01f)
+            {
+                if (chain1.position.y > chain1BalancedY)
+                    chain1.position = new Vector3(chain1.position.x, Mathf.Max(chain1.position.y - delta, chain1BalancedY), chain1.position.z);
+                else
+                    chain1.position = new Vector3(chain1.position.x, Mathf.Min(chain1.position.y + delta, chain1BalancedY), chain1.position.z);
+            }
+            // 调整 chain2 朝向 chain2BalancedY 运动
+            if (Mathf.Abs(chain2.position.y - chain2BalancedY) > 0.01f)
+            {
+                if (chain2.position.y > chain2BalancedY)
+                    chain2.position = new Vector3(chain2.position.x, Mathf.Max(chain2.position.y - delta, chain2BalancedY), chain2.position.z);
+                else
+                    chain2.position = new Vector3(chain2.position.x, Mathf.Min(chain2.position.y + delta, chain2BalancedY), chain2.position.z);
+            }
+        }
+        // 情况4：两个平台都没有角色时，保持当前状态
     }
 }
