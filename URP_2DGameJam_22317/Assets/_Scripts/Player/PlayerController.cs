@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     // 玩家类型枚举
     public enum PlayerType { Player1, Player2 }
     public PlayerType playerType;
+    public PlayerState playerState;
 
     // 移动参数
     [SerializeField] float moveSpeed = 5f;
@@ -18,13 +20,15 @@ public class PlayerController : MonoBehaviour
     public HealthBarTimer healthBarTimer; // 拖入挂载HealthBarTimer的对象
 
     // 组件引用
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private bool isGrounded;
     private float horizontalInput;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerState = PlayerState.normal;
     }
 
     void Update()
@@ -32,13 +36,20 @@ public class PlayerController : MonoBehaviour
         // 地面检测（使用圆形射线检测）
         isGrounded = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.6f, groundLayer);
 
-        // 输入处理
-        HandleInput();
+        switch (playerState)
+        {
+            case PlayerState.normal:
+                // 移动处理
+                MoveCharacter();
+                // 输入处理
+                HandleInput();
+                break;
+            case PlayerState.console:
+                
+            break;
+        }
 
-        // 移动处理
-        MoveCharacter();
-
-        //交互检测
+        
        
     }
     void FixedUpdate()
