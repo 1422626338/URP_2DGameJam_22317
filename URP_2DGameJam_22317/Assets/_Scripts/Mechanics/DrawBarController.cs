@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class DrawBarController : MonoBehaviour
 {
+    public Sprite closeSprite;
+    public Sprite openSprite;
     public Transform targetPos; //终止位置
     public Vector3 initDoorPos; //机关原来的位置
     public GameObject door;     //机关
@@ -15,7 +17,12 @@ public class DrawBarController : MonoBehaviour
     private int state = -1;//状态
     private bool isPlayer1;
     private bool isPlayer2;
+    private SpriteRenderer spriteRenderer;
 
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     private void Update()
     {
         if(isPlayer1)
@@ -72,6 +79,7 @@ public class DrawBarController : MonoBehaviour
         {
             case 1:
                 door.transform.DOMove(targetPos.position , duration).SetEase(Ease.InOutQuad);
+                
                 break;
             case -1:
                 door.transform.DOMove(initDoorPos, duration).SetEase(Ease.InOutQuad);

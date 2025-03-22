@@ -1,17 +1,17 @@
 using UnityEngine;
 /// <summary>
-/// Ìí¼ÓÏä×ÓÔÚÑ¹Á¦°åÉÏÊ±£¬Ö»ĞèÒª¼ì²âÏä×ÓµÄ±êÇ©Tag
+/// æ·»åŠ ç®±å­åœ¨å‹åŠ›æ¿ä¸Šæ—¶ï¼Œåªéœ€è¦æ£€æµ‹ç®±å­çš„æ ‡ç­¾Tag
 /// </summary>
 public class PressurePlateController : MonoBehaviour
 {
-    public Transform door; // ÍÏÈëÃÅ¶ÔÏó
+    public Transform door; // æ‹–å…¥é—¨å¯¹è±¡
 
-    public Transform targetPosition;    //ÃÅÒªÒÆ¶¯µÄÎ»ÖÃ
-    public float moveSpeed = 2f; // ÒÆ¶¯ËÙ¶È
-    public float plateMoveOffset = 0.1f; // Ñ¹Á¦°åÏÂÒÆ¾àÀë
+    public Transform targetPosition;    //é—¨è¦ç§»åŠ¨çš„ä½ç½®
+    public float moveSpeed = 2f; // ç§»åŠ¨é€Ÿåº¦
+    public float plateMoveOffset = 0.1f; // å‹åŠ›æ¿ä¸‹ç§»è·ç¦»
 
-    private Vector3 doorInitialPos; //ÃÅµÄ³õÊ¼Î»ÖÃ
-    private Vector3 plateInitialPos;    //Ñ¹Á¦°å³õÊ¼Î»ÖÃ
+    private Vector3 doorInitialPos; //é—¨çš„åˆå§‹ä½ç½®
+    private Vector3 plateInitialPos;    //å‹åŠ›æ¿åˆå§‹ä½ç½®
     private bool isPressed;
 
     void Start()
@@ -22,7 +22,7 @@ public class PressurePlateController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+        if (other.CompareTag("Player1") || other.CompareTag("Player2") || other.CompareTag("box"))
         {
             isPressed = true;
         }
@@ -30,7 +30,7 @@ public class PressurePlateController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+        if (other.CompareTag("Player1") || other.CompareTag("Player2") || other.CompareTag("box"))
         {
             isPressed = false;
         }
@@ -38,12 +38,12 @@ public class PressurePlateController : MonoBehaviour
 
     void Update()
     {
-        // ¼ÆËãÄ¿±êÎ»ÖÃ
+        // è®¡ç®—ç›®æ ‡ä½ç½®
         Vector3 targetDoorPos = isPressed ? targetPosition.position : doorInitialPos;
         Vector3 targetPlatePos = isPressed ? plateInitialPos + Vector3.down * plateMoveOffset : plateInitialPos;
 
-        // Æ½»¬ÒÆ¶¯ÃÅºÍÑ¹Á¦°å
-        door.position = Vector3.MoveTowards(door.position, targetDoorPos, moveSpeed * Time.deltaTime);              //»ú¹Ø¹ÜÒÆÖÁÄ¿±ê´¦
-        transform.position = Vector3.MoveTowards(transform.position, targetPlatePos, moveSpeed * Time.deltaTime);   //Ñ¹Á¦°å±¾ÉíÏÂÒÆ
+        // å¹³æ»‘ç§»åŠ¨é—¨å’Œå‹åŠ›æ¿
+        door.position = Vector3.MoveTowards(door.position, targetDoorPos, moveSpeed * Time.deltaTime);              //æœºå…³ç®¡ç§»è‡³ç›®æ ‡å¤„
+        transform.position = Vector3.MoveTowards(transform.position, targetPlatePos, moveSpeed * Time.deltaTime);   //å‹åŠ›æ¿æœ¬èº«ä¸‹ç§»
     }
 }
