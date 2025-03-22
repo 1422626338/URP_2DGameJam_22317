@@ -11,8 +11,7 @@ public class Level1_1 : BaseLevel
 
     private void Awake()
     {
-        P1SpawnPoint = new Vector2 (1, 0);
-        P2SpawnPoint = new Vector2 (2, 0);
+        
     }
     private void OnEnable()
     {
