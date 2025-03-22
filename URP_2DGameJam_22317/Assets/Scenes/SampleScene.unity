@@ -204,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 282265899}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.97, y: 2.05, z: 0}
+  m_LocalPosition: {x: -4.82, y: -4.57, z: 0}
   m_LocalScale: {x: 0.7774, y: 1.3441, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,12 +295,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 0
+  playerState: 0
   moveSpeed: 8
   jumpForce: 14
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   healthBarTimer: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +448,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfcc637a3f4ccac40bd08e0f14140c53, type: 3}
   m_Name: 
@@ -737,7 +739,7 @@ Transform:
   m_GameObject: {fileID: 946652523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.33, y: 2.04, z: 0}
+  m_LocalPosition: {x: 7.97, y: 6.89, z: 0}
   m_LocalScale: {x: 0.7774, y: 1.3441, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -756,12 +758,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 1
+  playerState: 0
   moveSpeed: 8
   jumpForce: 14
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   healthBarTimer: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &1101218788
 GameObject:
   m_ObjectHideFlags: 0
