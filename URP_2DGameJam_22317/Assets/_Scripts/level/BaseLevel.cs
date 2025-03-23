@@ -14,5 +14,6 @@ public class BaseLevel : MonoBehaviour
     public Vector2 P2SpawnPoint;
 
     protected bool isFail;
+    public float curTimeCount;
 
 }

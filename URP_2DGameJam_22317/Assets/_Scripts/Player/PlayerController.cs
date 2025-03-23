@@ -88,17 +88,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("电池"))
-        {
-            // 增加血量（例如恢复10秒）
-            healthBarTimer.AddTime(10f);
-
-            // 销毁电池对象
-            Destroy(collision.gameObject);
-        }
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {

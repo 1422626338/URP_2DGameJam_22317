@@ -15,24 +15,25 @@ public class Level1_1 : BaseLevel
     }
     private void OnEnable()
     {
-        timeCount = 100;
+        curTimeCount = timeCount;
         isFail = false;
         LevelManager.Instance.SetPlayerPoint(P1SpawnPoint , P2SpawnPoint);
         LevelManager.Instance.p1.SetActive(true);
         LevelManager.Instance.p2.SetActive(true);
     }
 
-    private void Update()
+   private void Update()
     {
-        while (timeCount > 0)
+        if (curTimeCount > 0)
         {
-            timeCount -= Time.deltaTime;
+            curTimeCount -= Time.deltaTime;
         }
 
-        if (timeCount < 0)
+        if (curTimeCount < 0)
         {
             isFail = true;
             //TODO 跳出失败面板
         }
     }
+   
 }
