@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
- /// <summary>
- ///注释
- /// <summary>
+using UnityEngine.Rendering.Universal;
+
+/// <summary>
+///注释
+/// <summary>
 
 public class Level1_1 : BaseLevel
 {
@@ -22,8 +23,9 @@ public class Level1_1 : BaseLevel
         LevelManager.Instance.p2.SetActive(true);
     }
 
-   private void Update()
+     protected override void Update()
     {
+        base.Update();
         if (curTimeCount > 0)
         {
             curTimeCount -= Time.deltaTime;
@@ -32,6 +34,7 @@ public class Level1_1 : BaseLevel
         if (curTimeCount < 0)
         {
             isFail = true;
+            Debug.Log("游戏失败");
             //TODO 跳出失败面板
         }
     }
