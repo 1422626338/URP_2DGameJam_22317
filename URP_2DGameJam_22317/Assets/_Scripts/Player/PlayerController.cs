@@ -15,16 +15,19 @@ public class PlayerController : MonoBehaviour
     // 移动参数
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpForce = 14f;
+
+    [Header("检测地面")]
     [SerializeField] LayerMask groundLayer; //地面图层
+    [SerializeField] Vector2 boxSize;
+    [SerializeField] float castDistance;
+    private bool isGrounded;
 
     [Header("血量控制")]
     public HealthBarTimer healthBarTimer; // 拖入挂载HealthBarTimer的对象
 
     // 组件引用
     public Rigidbody2D rb;
-    private bool isGrounded;
-    private float horizontalInput;
-    
+    private float horizontalInput;   
 
     void Start()
     {
@@ -34,8 +37,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // 地面检测（使用圆形射线检测）
-        isGrounded = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.6f, groundLayer);
+        // 地面检测（使用Box射线检测）
+        isGrounded = Physics2D.BoxCast(transform.position,boxSize,0,-transform.up,castDistance,groundLayer);
 
         switch (playerState)
         {
@@ -49,9 +52,7 @@ public class PlayerController : MonoBehaviour
                 
             break;
         }
-
-        
-       
+            
     }
     void FixedUpdate()
     {
@@ -102,7 +103,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position - transform.up * castDistance,boxSize);
     }
 
 }
