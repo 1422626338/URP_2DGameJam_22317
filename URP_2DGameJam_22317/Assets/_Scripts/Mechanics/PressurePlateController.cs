@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 /// <summary>
 /// 添加箱子在压力板上时，只需要检测箱子的标签Tag
 /// </summary>
@@ -42,8 +43,10 @@ public class PressurePlateController : MonoBehaviour
         Vector3 targetDoorPos = isPressed ? targetPosition.position : doorInitialPos;
         Vector3 targetPlatePos = isPressed ? plateInitialPos + Vector3.down * plateMoveOffset : plateInitialPos;
 
+        Debug.Log(moveSpeed);
+
         // 平滑移动门和压力板
-        door.position = Vector3.MoveTowards(door.position, targetDoorPos, moveSpeed * Time.deltaTime);              //机关管移至目标处
+        door.DOMove(targetDoorPos, 0.2f).SetEase(Ease.InOutQuad); ;            //机关管移至目标处
         transform.position = Vector3.MoveTowards(transform.position, targetPlatePos, moveSpeed * Time.deltaTime);   //压力板本身下移
     }
 }
