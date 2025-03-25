@@ -305,6 +305,7 @@ MonoBehaviour:
   boxSize: {x: 0.7, y: 0.3}
   castDistance: 0.6
   healthBarTimer: {fileID: 0}
+  isFacingRight: 1
   rb: {fileID: 0}
 --- !u!114 &282265905
 MonoBehaviour:
@@ -739,6 +740,7 @@ MonoBehaviour:
   boxSize: {x: 0.7, y: 0.3}
   castDistance: 0.6
   healthBarTimer: {fileID: 0}
+  isFacingRight: 1
   rb: {fileID: 0}
 --- !u!114 &946652529
 MonoBehaviour:
