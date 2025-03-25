@@ -13,6 +13,8 @@ public class PlatformDetector : MonoBehaviour
         if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             hasPlayer = true;
+            //TODO:更改父物体，防止出现抖动
+            collision.transform.parent = this.transform;
         }
     }
 
@@ -22,6 +24,11 @@ public class PlatformDetector : MonoBehaviour
         if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             hasPlayer = false;
+            //TODO:退出父物体
+            if(collision.transform.parent != null)
+            {
+                collision.transform.parent = null;
+            }
         }
     }
 }

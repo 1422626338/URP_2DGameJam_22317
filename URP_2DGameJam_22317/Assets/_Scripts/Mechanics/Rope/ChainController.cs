@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// TODO:添加美术资源后，出现上方锁链不移动，需要修改其图片为循环
+/// </summary>
+
 public class ChainController : MonoBehaviour
 {
     [Header("锁链对象（Transform）")]

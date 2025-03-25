@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     [Header("血量控制")]
     public HealthBarTimer healthBarTimer; // 拖入挂载HealthBarTimer的对象
 
+    [Header("角色朝向")]
+    [SerializeField] bool isFacingRight = true; // 默认面向右边
+
     // 组件引用
     public Rigidbody2D rb;
     private float horizontalInput;   
@@ -47,6 +50,8 @@ public class PlayerController : MonoBehaviour
                 MoveCharacter();
                 // 输入处理
                 HandleInput();
+                //处理角色翻转
+                HandleFlip();
                 break;
             case PlayerState.console:
                 
@@ -79,6 +84,26 @@ public class PlayerController : MonoBehaviour
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 }
                 break;
+        }
+    }
+    /// <summary>
+    /// 角色翻转
+    /// </summary>
+    void HandleFlip()
+    {
+        if (horizontalInput != 0)
+        {
+            bool shouldFaceRight = horizontalInput > 0;
+
+            if (shouldFaceRight != isFacingRight)
+            {
+                // 执行翻转
+                Vector3 newScale = transform.localScale;
+                newScale.x *= -1;
+                transform.localScale = newScale;
+
+                isFacingRight = !isFacingRight;
+            }
         }
     }
 
