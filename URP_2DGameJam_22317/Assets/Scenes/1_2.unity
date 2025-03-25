@@ -881,7 +881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907211295}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u62C9\u6746\u673A\u5173Target"
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -1215,7 +1215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1237043389}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u62C9\u6746\u673A\u5173Target3"
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -1959,7 +1959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1602164830}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u62C9\u6746\u673A\u5173Target2"
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2458,7 +2458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970789660}
   - component: {fileID: 1970789659}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2671,7 +2671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2092951996}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u673A\u5173"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
