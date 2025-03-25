@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d272f729f792d52479ea44a721c03bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCount: 100
+  timeCount: 20
   P1SpawnPoint: {x: -13.14, y: -7.13}
   P2SpawnPoint: {x: -15.44, y: -7.13}
   ligthRadiu: 0
@@ -1414,6 +1414,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 543143058}
     m_Modifications:
+    - target: {fileID: -2729773664127091272, guid: fc8bc58eb2848974eb648e61520447c0, type: 3}
+      propertyPath: healTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2729773664127091272, guid: fc8bc58eb2848974eb648e61520447c0, type: 3}
+      propertyPath: canRevive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2729773664127091272, guid: fc8bc58eb2848974eb648e61520447c0, type: 3}
+      propertyPath: reviveTimeCount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 606572011138541935, guid: fc8bc58eb2848974eb648e61520447c0, type: 3}
       propertyPath: m_Name
       value: "\u7535\u6C60"
