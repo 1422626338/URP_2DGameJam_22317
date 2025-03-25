@@ -119,10 +119,14 @@ public class ConsoleController : MonoBehaviour
         {
             case -1:
                 playerController.playerState = PlayerState.normal;
+                targetObj.GetComponent<Rigidbody2D>().constraints |= RigidbodyConstraints2D.FreezePositionX;
+                targetObj.GetComponent<Rigidbody2D>().constraints |= RigidbodyConstraints2D.FreezePositionY;
                 
                 break;
             case 1:
                 playerController.playerState = PlayerState.console;
+                targetObj.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+                targetObj.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
                 break;
         }
     }

@@ -42,8 +42,7 @@ public class PressurePlateController : MonoBehaviour
         // 计算目标位置
         Vector3 targetDoorPos = isPressed ? targetPosition.position : doorInitialPos;
         Vector3 targetPlatePos = isPressed ? plateInitialPos + Vector3.down * plateMoveOffset : plateInitialPos;
-
-        Debug.Log(moveSpeed);
+     
 
         // 平滑移动门和压力板
         door.DOMove(targetDoorPos, 0.2f).SetEase(Ease.InOutQuad); ;            //机关管移至目标处
