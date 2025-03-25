@@ -1548,9 +1548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee9e84b9416f824bba9121ce2a7140c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCount: 20
-  P1SpawnPoint: {x: -6.79, y: -0.37}
-  P2SpawnPoint: {x: -2, y: 0}
+  timeCount: 100
+  P1SpawnPoint: {x: -15.15, y: -3.45}
+  P2SpawnPoint: {x: -15.15, y: -7.08}
   ligthRadiu: 3.3
   curTimeCount: 0
 --- !u!1001 &1477520535
@@ -1561,9 +1561,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044952555}
     m_Modifications:
+    - target: {fileID: 866720559221760906, guid: 27ea8e768ba610a4dbc9aa4fdd2932e8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 972464295718610931, guid: 27ea8e768ba610a4dbc9aa4fdd2932e8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3443124817381846860, guid: 27ea8e768ba610a4dbc9aa4fdd2932e8, type: 3}
       propertyPath: m_Name
       value: "\u5347\u964D\u53F0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443124817381846860, guid: 27ea8e768ba610a4dbc9aa4fdd2932e8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4367342723797234183, guid: 27ea8e768ba610a4dbc9aa4fdd2932e8, type: 3}
       propertyPath: m_LocalPosition.x
