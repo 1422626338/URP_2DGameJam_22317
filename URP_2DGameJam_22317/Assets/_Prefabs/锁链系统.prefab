@@ -491,8 +491,8 @@ Transform:
   m_GameObject: {fileID: 5253128254410423117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1692, y: 6.5135, z: 0}
-  m_LocalScale: {x: 0.40290156, y: 0.18820436, z: 1}
+  m_LocalPosition: {x: 0.4587, y: 0.1797, z: 0}
+  m_LocalScale: {x: 23.160765, y: 12.383615, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4530636162849751177}
@@ -538,7 +538,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f55bdcd37e15d634d8dcd067175c283b, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 1f9064d57efd175409b8680524bf27cf, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
