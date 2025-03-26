@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer; //地面图层
     [SerializeField] Vector2 boxSize;
     [SerializeField] float castDistance;
-    private bool isGrounded;
+    public bool isGrounded;
 
     [Header("血量控制")]
     public HealthBarTimer healthBarTimer; // 拖入挂载HealthBarTimer的对象
