@@ -22,6 +22,7 @@ public class DrawBarController : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = closeSprite;    //默认初始为关闭图片
     }
     private void Update()
     {
@@ -77,10 +78,11 @@ public class DrawBarController : MonoBehaviour
         {
             case 1:
                 door.transform.DOMove(targetPos.position , duration).SetEase(Ease.InOutQuad);
-                
+                spriteRenderer.sprite = openSprite; //开启图片
                 break;
             case -1:
                 door.transform.DOMove(initDoorPos, duration).SetEase(Ease.InOutQuad);
+                spriteRenderer.sprite = closeSprite;    //关闭图片
                 break;
         }
     }

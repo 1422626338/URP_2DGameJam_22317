@@ -48,6 +48,9 @@ public class ChainController : MonoBehaviour
                 float newChain2Y = Mathf.Min(chain2.position.y + delta, chain2UpperBoundary.position.y);
                 chain1.position = new Vector3(chain1.position.x, newChain1Y, chain1.position.z);
                 chain2.position = new Vector3(chain2.position.x, newChain2Y, chain2.position.z);
+
+                //添加上方锁链的偏移值修改
+
             }
         }
         // 情况2：只有 detector2 检测到角色（让 chain2 向下、chain1 向上）
