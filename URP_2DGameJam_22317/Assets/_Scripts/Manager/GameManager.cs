@@ -8,5 +8,9 @@ using UnityEngine;
 
 public class GameManager : SingletonMono<GameManager>
 {
- 
+    private void Awake()
+    {
+       
+    }
+
 }
