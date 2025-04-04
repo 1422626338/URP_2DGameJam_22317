@@ -17,28 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a1dd3c90e1e0e8c40a2e26e50ad24d5b
   m_SerializeEntries:
-  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
-    m_Address: President
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fd1e1effcf295a14e875cb8a5d94a482
-    m_Address: Menu
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ff5a64619637e5f47869712777a1c240
-    m_Address: 1_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: edd557aaa40713f498e2b648e90a5941
-    m_Address: 1_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e1c420c2936587b46bcdc02e2b506aac
-    m_Address: 1_1
+  - m_GUID: dbec6a173e7e67b4283593f9df2aace2
+    m_Address: "\u5B57\u9B42\u9192\u72EE\u4F53 SDF"
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

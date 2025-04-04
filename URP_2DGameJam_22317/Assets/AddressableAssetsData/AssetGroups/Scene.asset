@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Scene
+  m_EditorClassIdentifier: 
+  m_GroupName: Scene
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9b1ddcdcd3205de40bbb65847f0c3048
+  m_SerializeEntries:
+  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_Address: President
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd1e1effcf295a14e875cb8a5d94a482
+    m_Address: Menu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff5a64619637e5f47869712777a1c240
+    m_Address: 1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edd557aaa40713f498e2b648e90a5941
+    m_Address: 1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1c420c2936587b46bcdc02e2b506aac
+    m_Address: 1_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 365b57fcda5020d4d9fc1c6c0d092d21
+    m_Address: Map
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 014a5cb161cfd8e4cbfb7817e7b3302c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2a7910b1a5b680746bb69f5fd886fed2, type: 2}
+    - {fileID: 11400000, guid: 1572f5b2019cc7c46b17875848bc1653, type: 2}

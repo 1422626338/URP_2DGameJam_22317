@@ -1169,6 +1169,11 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  map:
+    m_AssetGUID: 365b57fcda5020d4d9fc1c6c0d092d21
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
