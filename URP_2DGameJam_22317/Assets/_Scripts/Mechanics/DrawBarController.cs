@@ -10,7 +10,8 @@ public class DrawBarController : MonoBehaviour
     public Sprite closeSprite;
     public Sprite openSprite;
     public Transform targetPos; //终止位置
-    public Vector3 initDoorPos; //机关原来的位置
+    //public Vector3 initDoorPos; //机关原来的位置
+    public Transform initDoorPos;
     public GameObject door;     //机关
     public float duration; //移动时间
 
@@ -81,7 +82,7 @@ public class DrawBarController : MonoBehaviour
                 spriteRenderer.sprite = openSprite; //开启图片
                 break;
             case -1:
-                door.transform.DOMove(initDoorPos, duration).SetEase(Ease.InOutQuad);
+                door.transform.DOMove(initDoorPos.position, duration).SetEase(Ease.InOutQuad);
                 spriteRenderer.sprite = closeSprite;    //关闭图片
                 break;
         }

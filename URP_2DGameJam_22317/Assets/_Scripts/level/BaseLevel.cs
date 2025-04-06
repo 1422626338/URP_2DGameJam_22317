@@ -11,8 +11,10 @@ public class BaseLevel : MonoBehaviour
 {
     [SerializeField]
     public float timeCount = 100;
-    public Vector2 P1SpawnPoint;
-    public Vector2 P2SpawnPoint;
+    public Transform P1SpawnPoint;
+    public Transform P2SpawnPoint;
+    // public Vector2 P1SpawnPoint;
+    //public Vector2 P2SpawnPoint;
     public float ligthRadiu;
 
     protected bool isFail;

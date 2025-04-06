@@ -18,7 +18,7 @@ public class Level1_1 : BaseLevel
     {
         curTimeCount = timeCount;
         isFail = false;
-        LevelManager.Instance.SetPlayerPoint(P1SpawnPoint , P2SpawnPoint);
+        LevelManager.Instance.SetPlayerPoint(P1SpawnPoint.position , P2SpawnPoint.position);
         LevelManager.Instance.p1.SetActive(true);
         LevelManager.Instance.p2.SetActive(true);
     }
