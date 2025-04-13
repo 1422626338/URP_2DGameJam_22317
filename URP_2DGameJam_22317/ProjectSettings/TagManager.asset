@@ -9,6 +9,7 @@ TagManager:
   - Player2
   - "\u62C9\u6746"
   - box
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Player1
   - Player2
   - Mechanics
-  - 
+  - Enemy
   - 
   - 
   - 

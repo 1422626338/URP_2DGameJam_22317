@@ -6,6 +6,7 @@ public class ConnectPlayers : MonoBehaviour
     public Transform player2;
     public float maxDistance = 10f; // 最大距离限制
     public float fadeOutSpeed = 2f; // 渐隐速度
+    public float fadeInSpeed = 2f; // 新增渐显速度
     public bool shouldShowLine = true; // 控制连线显示的布尔值
     public LayerMask layerMask; // 碰到这个图层的碰撞体，就消失
 
@@ -54,7 +55,9 @@ public class ConnectPlayers : MonoBehaviour
                 {
                     // 距离在限制范围内且无障碍物，显示连线
                     lineRenderer.enabled = true;
-                    alpha = 1f; // 重置透明度
+                    //alpha = 1f; // 重置透明度
+                    // 渐显逻辑：透明度逐渐增加
+                    alpha = Mathf.Min(alpha + fadeInSpeed * Time.deltaTime, 1f);
                     UpdateLineColor();
                     // 设置LineRenderer的起始点为Player1的位置
                     lineRenderer.SetPosition(0, player1.position);
