@@ -14,7 +14,7 @@ public class GameManager : SingletonMono<GameManager>
 
     public void HideGameObject()
     {
-        Debug.Log("Test1");
+      
         p1.SetActive(false);
         p2.SetActive(false);
         GamingPanel.SetActive(false);
@@ -23,6 +23,6 @@ public class GameManager : SingletonMono<GameManager>
     public void SetActiveGameObject()
     {
         GamingPanel.SetActive(true);
-        Debug.Log("Test2");
+        
     }
 }

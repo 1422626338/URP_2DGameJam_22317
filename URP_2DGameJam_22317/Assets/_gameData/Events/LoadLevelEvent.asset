@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 200819491db87184ab11ad7f9e5c5198, type: 3}
-  m_Name: LoadMapEvent
+  m_Name: LoadLevelEvent
   m_EditorClassIdentifier: 
-  description: "\u52A0\u8F7D\u5230\u5730\u56FE\u89E6\u53D1\u7684\u4E8B\u4EF6"
-  lastSender: Menu (Menu)
+  description: "\u52A0\u8F7D\u5230\u5173\u5361\u89E6\u53D1\u7684\u4E8B\u4EF6"
+  lastSender: 

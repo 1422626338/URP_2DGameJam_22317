@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200819491db87184ab11ad7f9e5c5198, type: 3}
   m_Name: BackToMenuEvent
   m_EditorClassIdentifier: 
-  description: 
-  lastSender: 
+  description: "\u8FD4\u56DE\u5230\u83DC\u5355\uFF08\u6807\u9898\uFF09\u754C\u9762\u540E\uFF0C\u89E6\u53D1\u7684\u4E8B\u4EF6"
+  lastSender: GamingPanel (GamingPanel)

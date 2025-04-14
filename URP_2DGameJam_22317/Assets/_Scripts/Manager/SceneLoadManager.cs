@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 ///注释
 /// <summary>
 
-public class SceneLoadManager :SingletonMono<SceneLoadManager>
+public class SceneLoadManager : SingletonMono<SceneLoadManager>
 {
     public AssetReference menu; //菜单场景
     public AssetReference map; //地图场景
@@ -36,16 +36,16 @@ public class SceneLoadManager :SingletonMono<SceneLoadManager>
         {
             currentSceneInstance = handle.Result; // 关键：保存场景实例
             SceneManager.SetActiveScene(handle.Result.Scene);
-         
+
         }
     }
     //卸载场景
     private async Task UnLoadSceneTask()
     {
-        await Task.Delay(450); // 450ms 延迟
+
         if (currentSceneInstance.Scene.IsValid())
         {
-           
+
             AsyncOperationHandle<SceneInstance> unloadHandle =
                 Addressables.UnloadSceneAsync(currentSceneInstance);
 
@@ -57,7 +57,7 @@ public class SceneLoadManager :SingletonMono<SceneLoadManager>
     public async void LoadMenu()
     {
         //有场景在加载
-        if(currentSceneInstance.Scene.IsValid())
+        if (currentSceneInstance.Scene.IsValid())
         {
             //卸载场景
             await UnLoadSceneTask();
@@ -81,13 +81,18 @@ public class SceneLoadManager :SingletonMono<SceneLoadManager>
 
     }
 
-    public async void LoadLevel(AssetReference levelScene)
+    public async void LoadLevel(object levelSceneObj)
     {
+        var levelScene = levelSceneObj as AssetReference;
+        Debug.Log("test2");
+
         //有场景在加载
         if (currentSceneInstance.Scene.IsValid())
         {
             //卸载场景
             await UnLoadSceneTask();
+            Debug.Log("test3");
+
         }
 
         currentScene = levelScene;
