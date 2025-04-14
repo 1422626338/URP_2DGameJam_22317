@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 1361566220}
   - component: {fileID: 1361566219}
   m_Layer: 5
-  m_Name: staffrollButton (1)
+  m_Name: quitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

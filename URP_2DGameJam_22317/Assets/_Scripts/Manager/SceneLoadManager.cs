@@ -16,103 +16,83 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
     public AssetReference level1_1;//第一关场景
 
     private AssetReference currentScene; //当前场景
-    private SceneInstance currentSceneInstance; // 保存加载的场景实例
+    private SceneInstance currentSceneInstance;
+
+    private bool isLoading = false; // 防止多次并发加载
 
     private void OnEnable()
     {
         LoadMenu();
     }
 
-
-    //加载场景
     private async Task LoadSceneTask()
     {
+        if (currentScene == null) return;
+
+        isLoading = true;
+
         AsyncOperationHandle<SceneInstance> handle =
             Addressables.LoadSceneAsync(currentScene, LoadSceneMode.Additive);
 
-        await handle.Task; // 直接等待 Task
+        await handle.Task;
 
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
-            currentSceneInstance = handle.Result; // 关键：保存场景实例
+            currentSceneInstance = handle.Result;
             SceneManager.SetActiveScene(handle.Result.Scene);
-
         }
+
+        isLoading = false;
     }
-    //卸载场景
+
     private async Task UnLoadSceneTask()
     {
-
         if (currentSceneInstance.Scene.IsValid())
         {
-
             AsyncOperationHandle<SceneInstance> unloadHandle =
                 Addressables.UnloadSceneAsync(currentSceneInstance);
 
             await unloadHandle.Task;
-
         }
+    }
+
+    private async Task SafeLoadScene(AssetReference targetScene)
+    {
+        if (isLoading) return;
+
+        isLoading = true;
+
+        if (currentSceneInstance.Scene.IsValid())
+        {
+            await UnLoadSceneTask();
+        }
+
+        currentScene = targetScene;
+        await LoadSceneTask();
+
+        isLoading = false;
     }
 
     public async void LoadMenu()
     {
-        //有场景在加载
-        if (currentSceneInstance.Scene.IsValid())
-        {
-            //卸载场景
-            await UnLoadSceneTask();
-        }
-
-        currentScene = menu;
-        await LoadSceneTask();
-
+        await SafeLoadScene(menu);
     }
+
     public async void LoadMap()
     {
-        //有场景在加载
-        if (currentSceneInstance.Scene.IsValid())
-        {
-            //卸载场景
-            await UnLoadSceneTask();
-        }
-
-        currentScene = map;
-        await LoadSceneTask();
-
+        await SafeLoadScene(map);
     }
 
     public async void LoadLevel(object levelSceneObj)
     {
-        var levelScene = levelSceneObj as AssetReference;
-        Debug.Log("test2");
-
-        //有场景在加载
-        if (currentSceneInstance.Scene.IsValid())
+        if (levelSceneObj is AssetReference levelScene)
         {
-            //卸载场景
-            await UnLoadSceneTask();
-            Debug.Log("test3");
-
+            await SafeLoadScene(levelScene);
         }
-
-        currentScene = levelScene;
-        await LoadSceneTask();
-
     }
 
-    public async void NewGame()
+    public async void  NewGame()
     {
-        //有场景在加载
-        if (currentSceneInstance.Scene.IsValid())
-        {
-            //卸载场景
-            await UnLoadSceneTask();
-        }
-
-        currentScene = level1_1;
-        await LoadSceneTask();
+        await SafeLoadScene(level1_1);
     }
-
-
-
 }
