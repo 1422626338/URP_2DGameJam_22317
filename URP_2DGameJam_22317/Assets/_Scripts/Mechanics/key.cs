@@ -10,6 +10,8 @@ public class key : MonoBehaviour
 {
     private SpriteRenderer sprite;
     private bool isPlayer2;
+
+    public ObjectEventSO getKeyEvent;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -19,9 +21,10 @@ public class key : MonoBehaviour
     {
         if(isPlayer2)
         {
-            if (Input.GetKeyDown(KeyCode.Keypad1)) ;
+            if (Input.GetKeyDown(KeyCode.Keypad1))
             {
                 sprite.enabled = false;
+                getKeyEvent.RaiseEvent(null, this);
             }
         }
     }
