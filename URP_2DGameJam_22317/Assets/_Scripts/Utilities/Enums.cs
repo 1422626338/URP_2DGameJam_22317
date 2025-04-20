@@ -10,3 +10,11 @@ public enum PlayerState
     normal,
     console
 }
+
+public enum LevelState
+{
+    locked,
+    unlock,
+    complete
+}
+

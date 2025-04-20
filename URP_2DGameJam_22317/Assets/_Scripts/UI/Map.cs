@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,13 @@ using UnityEngine.UI;
 public class Map : MonoBehaviour
 {
     public ObjectEventSO loadLevelEvent;
+    public ObjectEventSO backToMenuEvent;
 
     public AssetReference level1_1;
     public AssetReference level1_2;
     public AssetReference level1_3;
 
+    public Button backToMenuButton;
     public Button level1_1Button;
     public Button level1_2Button;
     public Button level1_3Button;
@@ -26,6 +29,13 @@ public class Map : MonoBehaviour
         level1_1Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_1));
         level1_2Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_2));
         level1_3Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_3));
+
+        backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
+    }
+
+    private void OnBackToMenuButtonClicked()
+    {
+        backToMenuEvent.RaiseEvent(null, this);
     }
 
     private void OnloadLevelEventButtonClicked(AssetReference levelScene)

@@ -10,6 +10,7 @@ TagManager:
   - "\u62C9\u6746"
   - box
   - Enemy
+  - "\u94A5\u5319"
   layers:
   - Default
   - TransparentFX
