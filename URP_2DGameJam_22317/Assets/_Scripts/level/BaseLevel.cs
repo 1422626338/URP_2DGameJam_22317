@@ -18,8 +18,11 @@ public class BaseLevel : MonoBehaviour
     public float ligthRadiu;
 
     protected bool isFail;
+    protected int panelCnt = 0;
     public float curTimeCount;
 
+    [Header("广播")]
+    public ObjectEventSO GameOverEvent;
      protected virtual void Update()
     {
         if (curTimeCount / timeCount > 0.7f)

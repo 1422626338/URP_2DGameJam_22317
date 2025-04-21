@@ -12,6 +12,7 @@ public class GameManager : SingletonMono<GameManager>
     public GameObject p2;
     public GameObject GamingPanel;
     public GameObject GameWinPanel;
+    public GameObject GameOverPanel;
 
     public void HideGameObject()
     {
@@ -20,6 +21,7 @@ public class GameManager : SingletonMono<GameManager>
         p2.SetActive(false);
         GamingPanel.SetActive(false);
         GameWinPanel.SetActive(false);
+        GameOverPanel.SetActive(false);
     }
 
     public void SetActiveGameObject()
@@ -31,5 +33,10 @@ public class GameManager : SingletonMono<GameManager>
     public void OnGameWinEvent()
     {
         GameWinPanel.SetActive(true);
+    }
+
+    public void OnGameOverEvent()
+    {
+        GameOverPanel.SetActive(true);
     }
 }

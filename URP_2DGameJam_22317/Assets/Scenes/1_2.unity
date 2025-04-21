@@ -3966,7 +3966,7 @@ GameObject:
   - component: {fileID: 2117742117}
   - component: {fileID: 2117742119}
   m_Layer: 0
-  m_Name: 1_3
+  m_Name: 1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4011,6 +4011,7 @@ MonoBehaviour:
   P2SpawnPoint: {fileID: 1889339591}
   ligthRadiu: 3.3
   curTimeCount: 0
+  GameOverEvent: {fileID: 11400000, guid: a14fdce29a71a2947ab914202d276e19, type: 2}
 --- !u!1 &2141837229
 GameObject:
   m_ObjectHideFlags: 0
