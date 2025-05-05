@@ -22,7 +22,7 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
 
     private void OnEnable()
     {
-        LoadMenu();
+        //LoadMenu();
     }
 
     private async Task LoadSceneTask()
