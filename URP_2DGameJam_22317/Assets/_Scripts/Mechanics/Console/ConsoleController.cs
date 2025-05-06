@@ -149,7 +149,7 @@ public class ConsoleController : MonoBehaviour
     {
         if (collision.CompareTag("Player1"))
         {
-            isPlayer2 = false;
+            isPlayer1 = false;
         }
 
         if (collision.CompareTag("Player2"))

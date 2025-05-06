@@ -5491,7 +5491,7 @@ MonoBehaviour:
   P1SpawnPoint: {fileID: 1647512467}
   P2SpawnPoint: {fileID: 556877102}
   ligthRadiu: 5
-  curTimeCount: 200
+  curTimeCount: 100
   GameOverEvent: {fileID: 11400000, guid: a14fdce29a71a2947ab914202d276e19, type: 2}
 --- !u!1001 &1799832466
 PrefabInstance:
