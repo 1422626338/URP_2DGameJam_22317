@@ -739,7 +739,7 @@ MonoBehaviour:
   playerType: 0
   playerState: 0
   moveSpeed: 8
-  jumpForce: 14
+  jumpForce: 18
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1847,7 +1847,7 @@ MonoBehaviour:
   playerType: 1
   playerState: 0
   moveSpeed: 8
-  jumpForce: 14
+  jumpForce: 18
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
