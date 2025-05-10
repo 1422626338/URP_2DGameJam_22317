@@ -1530,65 +1530,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20127ce310575e142b77fec16cce333b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level1_1:
+    m_AssetGUID: e1c420c2936587b46bcdc02e2b506aac
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  level1_2:
+    m_AssetGUID: edd557aaa40713f498e2b648e90a5941
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  level1_3:
+    m_AssetGUID: ff5a64619637e5f47869712777a1c240
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  level1_4:
+    m_AssetGUID: 0d024511b51474946939d822594df773
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  level1_5:
+    m_AssetGUID: 658727cd5b9789e47ab3c05807bb0b73
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  menu:
+    m_AssetGUID: fd1e1effcf295a14e875cb8a5d94a482
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   p1: {fileID: 282265899}
   p2: {fileID: 946652523}
   levelPos: 0
-  levelList:
-  - curScene:
-      m_AssetGUID: e1c420c2936587b46bcdc02e2b506aac
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    nextScene:
-      m_AssetGUID: edd557aaa40713f498e2b648e90a5941
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    levelState: 1
-  - curScene:
-      m_AssetGUID: edd557aaa40713f498e2b648e90a5941
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    nextScene:
-      m_AssetGUID: ff5a64619637e5f47869712777a1c240
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    levelState: 0
-  - curScene:
-      m_AssetGUID: ff5a64619637e5f47869712777a1c240
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    nextScene:
-      m_AssetGUID: 0d024511b51474946939d822594df773
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    levelState: 0
-  - curScene:
-      m_AssetGUID: 0d024511b51474946939d822594df773
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    nextScene:
-      m_AssetGUID: 658727cd5b9789e47ab3c05807bb0b73
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    levelState: 0
-  - curScene:
-      m_AssetGUID: 658727cd5b9789e47ab3c05807bb0b73
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    nextScene:
-      m_AssetGUID: fd1e1effcf295a14e875cb8a5d94a482
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    levelState: 0
+  levelList: []
 --- !u!1 &613900296
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3112,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337967092}
+  - component: {fileID: 1337967093}
+  - component: {fileID: 1337967094}
+  - component: {fileID: 1337967095}
   m_Layer: 0
   m_Name: SaveDataManager
   m_TagString: Untagged
@@ -3159,6 +3137,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1337967093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337967091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a4924777901c942abbeda6a0d10a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: 
+--- !u!114 &1337967094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337967091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070701e576479374eb3f239e6955faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: b9baf740f32b9494aa043fd5a622d560, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1337967093}
+        m_TargetAssemblyTypeName: SaveDataManager, Assembly-CSharp
+        m_MethodName: OnquitEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1337967095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337967091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070701e576479374eb3f239e6955faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 3dcc909cd0f685a4fb2ddc58da02b6ab, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1337967093}
+        m_TargetAssemblyTypeName: SaveDataManager, Assembly-CSharp
+        m_MethodName: InitData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1347845864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4527,8 +4574,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1101218789}
   - {fileID: 2118773039}
-  - {fileID: 1337967092}
   - {fileID: 535751191}
+  - {fileID: 1337967092}
   - {fileID: 1532323520}
   - {fileID: 1432677538}
   - {fileID: 285349161}

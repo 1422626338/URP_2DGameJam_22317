@@ -43,6 +43,6 @@ public class GameManager : SingletonMono<GameManager>
 
     public void ONStaffEvent()
     {
-
+        StaffPanel.SetActive(true);
     }
 }
