@@ -18,17 +18,23 @@ public class Map : MonoBehaviour
     public AssetReference level1_1;
     public AssetReference level1_2;
     public AssetReference level1_3;
+    public AssetReference level1_4;
+    public AssetReference level1_5;
 
     public Button backToMenuButton;
     public Button level1_1Button;
     public Button level1_2Button;
     public Button level1_3Button;
+    public Button level1_4Button;
+    public Button level1_5Button;
 
     private void OnEnable()
     {
         level1_1Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_1));
         level1_2Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_2));
         level1_3Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_3));
+        level1_4Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_4));
+        level1_5Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_5));
 
         backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
     }

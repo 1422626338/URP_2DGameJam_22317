@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     // 移动参数
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float jumpForce = 14f;
+    [SerializeField] float jumpForce = 10f;
 
     [Header("检测地面")]
     [SerializeField] LayerMask groundLayer; //地面图层
