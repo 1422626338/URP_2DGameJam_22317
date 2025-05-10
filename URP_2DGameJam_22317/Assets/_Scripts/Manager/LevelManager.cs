@@ -18,9 +18,9 @@ public class LevelManager : SingletonMono<LevelManager>
 {
     public GameObject p1;
     public GameObject p2;
-
+    public int levelPos = 0;
     public List<level> levelList = new List<level>();
-    
+
     public void SetPlayerPoint(Vector2 p1Point , Vector2 p2Point)
     {
         p1.transform.position = p1Point;
@@ -31,6 +31,9 @@ public class LevelManager : SingletonMono<LevelManager>
     {
         int n = levelList.Count;
         levelList[i].levelState = LevelState.complete;
-        if(i < n) levelList[i + 1].levelState = LevelState.unlock;
+        if (i < n - 1)
+        {
+            levelList[i + 1].levelState = LevelState.unlock;
+        }
     }
 }

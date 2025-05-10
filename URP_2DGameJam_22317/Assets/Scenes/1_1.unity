@@ -3281,6 +3281,7 @@ MonoBehaviour:
   P1SpawnPoint: {fileID: 369915272}
   P2SpawnPoint: {fileID: 847602846}
   ligthRadiu: 3.3
+  curLevelPos: 0
   curTimeCount: 0
   GameOverEvent: {fileID: 11400000, guid: a14fdce29a71a2947ab914202d276e19, type: 2}
 --- !u!4 &1455986838 stripped

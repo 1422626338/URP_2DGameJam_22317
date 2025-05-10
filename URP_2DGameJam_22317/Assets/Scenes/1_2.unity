@@ -4120,10 +4120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5039766e18eb443a6a5e41493add5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCount: 40
+  timeCount: 120
   P1SpawnPoint: {fileID: 978233162}
   P2SpawnPoint: {fileID: 1889339591}
   ligthRadiu: 3.3
+  curLevelPos: 1
   curTimeCount: 0
   GameOverEvent: {fileID: 11400000, guid: a14fdce29a71a2947ab914202d276e19, type: 2}
 --- !u!1 &2141837229

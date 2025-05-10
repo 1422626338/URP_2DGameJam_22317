@@ -20,6 +20,8 @@ public class Level1_4 : BaseLevel
         LevelManager.Instance.SetPlayerPoint(P1SpawnPoint.position, P2SpawnPoint.position);
         LevelManager.Instance.p1.SetActive(true);
         LevelManager.Instance.p2.SetActive(true);
+        LevelManager.Instance.levelPos = curLevelPos;
+
     }
 
     protected override void Update()

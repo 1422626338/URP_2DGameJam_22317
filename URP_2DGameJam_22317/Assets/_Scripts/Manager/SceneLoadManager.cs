@@ -91,6 +91,22 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
         }
     }
 
+    public async void OnMapLoadLevel(object levelSceneObj)
+    {
+        if (levelSceneObj is level levelScene)
+        {
+            if(levelScene.levelState != LevelState.locked)
+            {
+                await SafeLoadScene(levelScene.curScene);
+            }
+            else
+            {
+
+            }
+            
+        }
+    }
+
     public async void  NewGame()
     {
         await SafeLoadScene(level1_1);

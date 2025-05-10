@@ -30,11 +30,11 @@ public class Map : MonoBehaviour
 
     private void OnEnable()
     {
-        level1_1Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_1));
-        level1_2Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_2));
-        level1_3Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_3));
-        level1_4Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_4));
-        level1_5Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(level1_5));
+        level1_1Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(LevelManager.Instance.levelList[0]));
+        level1_2Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(LevelManager.Instance.levelList[1]));
+        level1_3Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(LevelManager.Instance.levelList[2]));
+        level1_4Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(LevelManager.Instance.levelList[3]));
+        level1_5Button.onClick.AddListener(() => OnloadLevelEventButtonClicked(LevelManager.Instance.levelList[4]));
 
         backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
     }
@@ -44,7 +44,7 @@ public class Map : MonoBehaviour
         backToMenuEvent.RaiseEvent(null, this);
     }
 
-    private void OnloadLevelEventButtonClicked(AssetReference levelScene)
+    private void OnloadLevelEventButtonClicked(level levelScene)
     {
         Debug.Log("test1");
         loadLevelEvent.RaiseEvent(levelScene, this);

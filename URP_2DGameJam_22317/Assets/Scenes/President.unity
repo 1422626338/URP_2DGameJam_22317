@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1: {fileID: 282265899}
   p2: {fileID: 946652523}
+  levelPos: 0
   levelList:
   - curScene:
       m_AssetGUID: e1c420c2936587b46bcdc02e2b506aac
@@ -1410,10 +1411,32 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     nextScene:
-      m_AssetGUID: ff5a64619637e5f47869712777a1c240
+      m_AssetGUID: 0d024511b51474946939d822594df773
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    levelState: 0
+  - curScene:
+      m_AssetGUID: 0d024511b51474946939d822594df773
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    nextScene:
+      m_AssetGUID: 658727cd5b9789e47ab3c05807bb0b73
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    levelState: 0
+  - curScene:
+      m_AssetGUID: 658727cd5b9789e47ab3c05807bb0b73
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 1
+    nextScene:
+      m_AssetGUID: fd1e1effcf295a14e875cb8a5d94a482
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     levelState: 0
 --- !u!1 &613900296
 GameObject:
@@ -2030,6 +2053,7 @@ GameObject:
   - component: {fileID: 1101218793}
   - component: {fileID: 1101218794}
   - component: {fileID: 1101218795}
+  - component: {fileID: 1101218796}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2200,6 +2224,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1101218790}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnGameOverEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1101218796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101218788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070701e576479374eb3f239e6955faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 03f7b0c26e5710e4aa1ad4ecba9ad64d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1101218790}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: HideGameObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2980,9 +3032,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 1432677534}
   backToMenuButton: {fileID: 1493674973}
-  ReChallengeButton: {fileID: 1175961476}
+  reChallengeButton: {fileID: 1175961476}
   nextLevelButton: {fileID: 2125779436}
   backToMenuEvent: {fileID: 11400000, guid: 33e99af40dc97ef48a883cc5425b7ffc, type: 2}
+  autoLoadLevelEvent: {fileID: 11400000, guid: 03f7b0c26e5710e4aa1ad4ecba9ad64d, type: 2}
 --- !u!1 &1493674971
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,6 +3535,7 @@ GameObject:
   - component: {fileID: 2118773043}
   - component: {fileID: 2118773044}
   - component: {fileID: 2118773045}
+  - component: {fileID: 2118773046}
   m_Layer: 0
   m_Name: SceneLoadManager
   m_TagString: Untagged
@@ -3635,6 +3689,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SceneLoadManager, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2118773046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118773038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070701e576479374eb3f239e6955faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 03f7b0c26e5710e4aa1ad4ecba9ad64d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2118773040}
+        m_TargetAssemblyTypeName: SceneLoadManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

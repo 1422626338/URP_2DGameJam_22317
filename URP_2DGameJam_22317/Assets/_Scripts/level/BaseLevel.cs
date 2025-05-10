@@ -16,6 +16,7 @@ public class BaseLevel : MonoBehaviour
     // public Vector2 P1SpawnPoint;
     //public Vector2 P2SpawnPoint;
     public float ligthRadiu;
+    public int curLevelPos;
 
     protected bool isFail;
     protected int panelCnt = 0;
