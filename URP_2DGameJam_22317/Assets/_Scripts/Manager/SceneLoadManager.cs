@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 public class SceneLoadManager : SingletonMono<SceneLoadManager>
 {
+    public GameObject unlockPanel;
+
     public AssetReference menu; //菜单场景
     public AssetReference map; //地图场景
     public AssetReference level1_1;//第一关场景
@@ -19,6 +21,8 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
     private SceneInstance currentSceneInstance;
 
     private bool isLoading = false; // 防止多次并发加载
+
+    public ObjectEventSO OnLoadLevelafterEvent;
 
     private void OnEnable()
     {
@@ -88,6 +92,8 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
         if (levelSceneObj is AssetReference levelScene)
         {
             await SafeLoadScene(levelScene);
+            OnLoadLevelafterEvent.RaiseEvent(null, this);
+
         }
     }
 
@@ -98,10 +104,12 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
             if(levelScene.levelState != LevelState.locked)
             {
                 await SafeLoadScene(levelScene.curScene);
+                OnLoadLevelafterEvent.RaiseEvent(null, this);
             }
             else
             {
-
+                Debug.Log("该关卡未解锁");
+                unlockPanel.SetActive(true);
             }
             
         }
@@ -110,5 +118,6 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
     public async void  NewGame()
     {
         await SafeLoadScene(level1_1);
+        OnLoadLevelafterEvent.RaiseEvent(null, this);
     }
 }

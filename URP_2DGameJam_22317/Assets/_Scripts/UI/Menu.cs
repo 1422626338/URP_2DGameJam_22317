@@ -12,13 +12,21 @@ public class Menu : MonoBehaviour
 {
     public ObjectEventSO NewGameEvent;
     public ObjectEventSO LoadMapEvent;
+    public ObjectEventSO StaffEvent;
 
     public Button goToMapButton;
     public Button newGameButton;
+    public Button staffButton;
     private void OnEnable()
     {
         goToMapButton.onClick.AddListener(OnGoToMapButtonClieked);
         newGameButton.onClick.AddListener(OnNewGameButtonClieked);
+        staffButton.onClick.AddListener(OnStaffButtonClickeded);
+    }
+
+    private void OnStaffButtonClickeded()
+    {
+        StaffEvent.RaiseEvent(null , this);
     }
 
     private void OnNewGameButtonClieked()

@@ -447,8 +447,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NewGameEvent: {fileID: 11400000, guid: 3dcc909cd0f685a4fb2ddc58da02b6ab, type: 2}
   LoadMapEvent: {fileID: 11400000, guid: 4745cb42f504a4c4cb7fdd025b7f4f1f, type: 2}
+  StaffEvent: {fileID: 11400000, guid: 754e3078d726f674096de7bd9dac7c2e, type: 2}
   goToMapButton: {fileID: 1055876146}
   newGameButton: {fileID: 1728939931}
+  staffButton: {fileID: 151528962}
 --- !u!1 &1055876143
 GameObject:
   m_ObjectHideFlags: 0
