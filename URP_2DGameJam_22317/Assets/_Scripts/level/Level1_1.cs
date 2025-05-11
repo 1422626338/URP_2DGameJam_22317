@@ -19,6 +19,7 @@ public class Level1_1 : BaseLevel
         curTimeCount = timeCount;
         panelCnt = 0;
         isFail = false;
+        isTimeOut = false;
         LevelManager.Instance.SetPlayerPoint(P1SpawnPoint.position , P2SpawnPoint.position);
         LevelManager.Instance.p1.SetActive(true);
         LevelManager.Instance.p2.SetActive(true);
@@ -28,12 +29,12 @@ public class Level1_1 : BaseLevel
      protected override void Update()
     {
         base.Update();
-        if (curTimeCount > 0)
+        if (curTimeCount > 0 && isTimeOut)
         {
             curTimeCount -= Time.deltaTime;
         }
 
-        if (curTimeCount < 0)
+        if (curTimeCount < 0 && isTimeOut)
         {
             isFail = true;
            
@@ -46,5 +47,9 @@ public class Level1_1 : BaseLevel
             GameOverEvent.RaiseEvent(null, this);
         }
     }
-   
+    public void SetIsTimeOut(object boolObj)
+    {
+        bool flag = (bool)boolObj;
+        isTimeOut = flag;
+    }
 }

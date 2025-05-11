@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
- /// <summary>
- ///注释
- /// <summary>
+using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.Rendering.Universal;
+
+
+/// <summary>
+///注释
+/// <summary>
 
 public class GameManager : SingletonMono<GameManager>
 {
@@ -14,7 +17,13 @@ public class GameManager : SingletonMono<GameManager>
     public GameObject GameWinPanel;
     public GameObject GameOverPanel;
     public GameObject StaffPanel;
+    public GameObject Light2D;
 
+    public Light2D light2D;
+    private void OnEnable()
+    {
+        light2D = Light2D.GetComponent<Light2D>();
+    }
     public void HideGameObject()
     {
       
@@ -44,5 +53,15 @@ public class GameManager : SingletonMono<GameManager>
     public void ONStaffEvent()
     {
         StaffPanel.SetActive(true);
+    }
+
+    public void setLigth2DOpen()
+    {
+        light2D.intensity = 1.0f;
+    }
+
+    public void setLigth2DClose()
+    {
+        light2D.intensity = 0f;
     }
 }

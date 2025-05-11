@@ -65,6 +65,11 @@ public class SaveDataManager : SingletonMono<SaveDataManager>
         string json = JsonUtility.ToJson(wrapper , true);
         string filepath = Application.streamingAssetsPath + "/savedData.json";
 
+        if (!Directory.Exists(Application.streamingAssetsPath))
+        {
+            Directory.CreateDirectory(Application.streamingAssetsPath);
+        }
+
         using (StreamWriter sw = new StreamWriter(filepath)) 
         {
             sw.WriteLine(json);

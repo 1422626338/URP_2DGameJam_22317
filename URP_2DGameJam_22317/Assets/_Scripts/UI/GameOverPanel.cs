@@ -15,9 +15,16 @@ public class GameOverPanel : MonoBehaviour
 
     [Header("广播")]
     public ObjectEventSO backToMenuEvent;
+    public ObjectEventSO autoLoadLevelEvent;
     private void OnEnable()
     {
         backToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
+        reChallengeButton.onClick.AddListener(OnReChallengeButtonClicked);
+    }
+
+    private void OnReChallengeButtonClicked()
+    {
+        autoLoadLevelEvent.RaiseEvent(LevelManager.Instance.levelList[LevelManager.Instance.levelPos].curScene, this);
     }
 
     private void OnBackToMenuButtonClicked()

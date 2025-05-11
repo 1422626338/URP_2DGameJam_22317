@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d272f729f792d52479ea44a721c03bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCount: 50
+  timeCount: 70
   P1SpawnPoint: {fileID: 211655319}
   P2SpawnPoint: {fileID: 427008484}
   ligthRadiu: 3.3
@@ -1794,6 +1794,10 @@ PrefabInstance:
     - target: {fileID: 3710004968981447789, guid: 54f97521b1dbce74cb98103e15e66f8b, type: 3}
       propertyPath: m_SortingLayerID
       value: 1619339767
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689020904104574118, guid: 54f97521b1dbce74cb98103e15e66f8b, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780308028650111399, guid: 54f97521b1dbce74cb98103e15e66f8b, type: 3}
       propertyPath: m_Name
