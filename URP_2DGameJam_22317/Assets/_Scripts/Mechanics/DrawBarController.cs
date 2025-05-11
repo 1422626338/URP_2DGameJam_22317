@@ -1,9 +1,10 @@
 using UnityEngine;
 using DG.Tweening;
- 
- /// <summary>
- ///注释
- /// <summary>
+using UnityEngine.Android;
+
+/// <summary>
+///注释
+/// <summary>
 
 public class DrawBarController : MonoBehaviour
 {
@@ -80,10 +81,20 @@ public class DrawBarController : MonoBehaviour
             case 1:
                 door.transform.DOMove(targetPos.position , duration).SetEase(Ease.InOutQuad);
                 spriteRenderer.sprite = openSprite; //开启图片
+                //TODO音效
+                if (AudioController.Instance != null)
+                {
+                    AudioController.Instance.PlaySFX(AudioController.Instance.pulldown);
+                }
                 break;
             case -1:
                 door.transform.DOMove(initDoorPos.position, duration).SetEase(Ease.InOutQuad);
                 spriteRenderer.sprite = closeSprite;    //关闭图片
+                //TODO
+                if (AudioController.Instance != null)
+                {
+                    AudioController.Instance.PlaySFX(AudioController.Instance.pulldown);
+                }
                 break;
         }
     }

@@ -2820,6 +2820,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8689020904104574118, guid: 54f97521b1dbce74cb98103e15e66f8b, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8780308028650111399, guid: 54f97521b1dbce74cb98103e15e66f8b, type: 3}
       propertyPath: m_Name
       value: "\u63A7\u5236\u5757"
@@ -3268,6 +3272,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 543143058}
     m_Modifications:
+    - target: {fileID: 2387478759761733705, guid: f76e3cc410a1d194eac82a456eaf0aae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.34
+      objectReference: {fileID: 0}
     - target: {fileID: 5703859650658038758, guid: f76e3cc410a1d194eac82a456eaf0aae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

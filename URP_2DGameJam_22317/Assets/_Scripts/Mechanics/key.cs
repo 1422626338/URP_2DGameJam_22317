@@ -25,6 +25,11 @@ public class key : MonoBehaviour
             {
                 sprite.enabled = false;
                 getKeyEvent.RaiseEvent(null, this);
+                //TODO：拾取音效
+                if (AudioController.Instance != null)
+                {
+                    AudioController.Instance.PlaySFX(AudioController.Instance.pickUpKey);
+                }
             }
         }
     }

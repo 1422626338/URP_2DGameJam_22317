@@ -30,6 +30,11 @@ public class Energy : MonoBehaviour
             {
                 var level = GetComponentInParent<BaseLevel>();
                 level.curTimeCount += healTime;
+                //TODO：恢复音效
+                if (AudioController.Instance != null)
+                {
+                    AudioController.Instance.PlaySFX(AudioController.Instance.heal);
+                }
                 isUsed = true;
                 spriteRenderer.enabled = false;
 

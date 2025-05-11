@@ -33,6 +33,11 @@ public class ConsoleController : MonoBehaviour
             {
                 state *= -1;
                 OnConsole(LevelManager.Instance.p1);
+                //TODO:音效
+                if (AudioController.Instance != null)
+                {
+                    AudioController.Instance.PlaySFX(AudioController.Instance.pulldown);
+                }
             }
         }
 
@@ -42,6 +47,11 @@ public class ConsoleController : MonoBehaviour
             {
                 state *= -1;
                 OnConsole(LevelManager.Instance.p2);
+                //TODO：机关控制音效
+                if (AudioController.Instance != null)
+                {
+                    AudioController.Instance.PlaySFX(AudioController.Instance.pulldown);
+                }
             }
         }
 

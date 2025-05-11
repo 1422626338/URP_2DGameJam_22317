@@ -74,6 +74,11 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.W) && isGrounded)
                 {
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    //TODO：跳跃音效
+                    if (AudioController.Instance != null)
+                    {
+                        AudioController.Instance.PlaySFX(AudioController.Instance.jump);
+                    }
                 }
                 break;
 
@@ -82,6 +87,11 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
                 {
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    //TODO：跳跃音效
+                    if (AudioController.Instance != null)
+                    {
+                        AudioController.Instance.PlaySFX(AudioController.Instance.jump);
+                    }
                 }
                 break;
         }
