@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2396215992958663292}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50,16 +50,13 @@ MonoBehaviour:
   SFXAudio: {fileID: 7209089042574398473}
   bgm: {fileID: 0}
   death: {fileID: 0}
-  decline: {fileID: 0}
   pickUpKey: {fileID: 8300000, guid: 52970c0069910534e906c4a63051e7a3, type: 3}
   useIt: {fileID: 0}
-  panelUp: {fileID: 8300000, guid: 52970c0069910534e906c4a63051e7a3, type: 3}
-  panelDown: {fileID: 0}
   pulldown: {fileID: 8300000, guid: 381d6c8658eb4e24699fc0101b15f5c2, type: 3}
   heal: {fileID: 8300000, guid: db8693fff5dbf1945845dcbcd793ca8a, type: 3}
   jump: {fileID: 8300000, guid: c24aa7a89ac2b1a4087cfa5b1587565e, type: 3}
   Hover: {fileID: 8300000, guid: 7a598703c81ce344a80c497af47c30aa, type: 3}
-  Confirm: {fileID: 0}
+  Confirm: {fileID: 8300000, guid: 5eddd7015dda82045a397fc42491b363, type: 3}
 --- !u!1 &5600260595960216140
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,11 +26,8 @@ public class AudioController : MonoBehaviour
 
     public AudioClip bgm;
     public AudioClip death;
-    public AudioClip decline;
     public AudioClip pickUpKey;
     public AudioClip useIt;
-    public AudioClip panelUp;
-    public AudioClip panelDown;
     public AudioClip pulldown;  //机关的开启和关闭
     public AudioClip heal;
     public AudioClip jump;
