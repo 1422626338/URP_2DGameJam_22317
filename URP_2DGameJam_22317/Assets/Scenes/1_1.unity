@@ -155,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 37339808}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.36, y: -5.36, z: 0}
+  m_LocalPosition: {x: -6.36, y: -5.39, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1789,7 +1789,7 @@ Transform:
   m_GameObject: {fileID: 627013156}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.57, y: -8.28, z: 0}
+  m_LocalPosition: {x: -15.67, y: -8.28, z: 0}
   m_LocalScale: {x: 0.602, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2766,7 +2766,7 @@ Transform:
   m_GameObject: {fileID: 1223761749}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.58, y: -5.36, z: 0}
+  m_LocalPosition: {x: -11.58, y: -5.39, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3282,6 +3282,7 @@ MonoBehaviour:
   P2SpawnPoint: {fileID: 847602846}
   ligthRadiu: 4
   curLevelPos: 0
+  isTimeOut: 0
   curTimeCount: 0
   GameOverEvent: {fileID: 11400000, guid: a14fdce29a71a2947ab914202d276e19, type: 2}
 --- !u!4 &1455986838 stripped
@@ -3971,8 +3972,8 @@ Transform:
   m_GameObject: {fileID: 1659882763}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.4789, y: 3.25, z: 0}
-  m_LocalScale: {x: 0.899622, y: 0.5, z: 1}
+  m_LocalPosition: {x: 13.5351, y: 3.25, z: 0}
+  m_LocalScale: {x: 0.9183341, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1889475071}

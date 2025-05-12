@@ -33,6 +33,8 @@ public class GamingPanel : MonoBehaviour
     {
         settingPanel.SetActive(true);
         isTimeOutEvent.RaiseEvent(true, this);
+        LevelManager.Instance.p1.SetActive(false);
+        LevelManager.Instance.p2.SetActive(false);
     }
 
     private void OnReChallengeButtonClicked()
@@ -45,6 +47,8 @@ public class GamingPanel : MonoBehaviour
     private void OnContinueButtonClicked()
     {
         settingPanel.SetActive(false);
+        LevelManager.Instance.p1.SetActive(true);
+        LevelManager.Instance.p2.SetActive(true);
         isTimeOutEvent.RaiseEvent(false, this);
 
     }
