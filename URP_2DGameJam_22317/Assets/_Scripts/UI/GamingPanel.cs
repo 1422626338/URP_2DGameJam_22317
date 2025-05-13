@@ -27,6 +27,7 @@ public class GamingPanel : MonoBehaviour
         continueButton.onClick.AddListener(OnContinueButtonClicked);
         reChallengeButton.onClick.AddListener(OnReChallengeButtonClicked);
         settingButton.onClick.AddListener(OnSettingButtonClicked);
+        settingPanel.SetActive(false);
     }
 
     private void OnSettingButtonClicked()
