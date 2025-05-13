@@ -5232,6 +5232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791102134}
   - component: {fileID: 1791102135}
+  - component: {fileID: 1791102136}
   m_Layer: 0
   m_Name: 1_5
   m_TagString: Untagged
@@ -5277,6 +5278,34 @@ MonoBehaviour:
   isTimeOut: 0
   curTimeCount: 100
   GameOverEvent: {fileID: 11400000, guid: a14fdce29a71a2947ab914202d276e19, type: 2}
+--- !u!114 &1791102136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791102133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070701e576479374eb3f239e6955faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 0725aee4eb047244881c456d0885db42, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1791102135}
+        m_TargetAssemblyTypeName: BaseLevel, Assembly-CSharp
+        m_MethodName: OnGameWinEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1799832466
 PrefabInstance:
   m_ObjectHideFlags: 0

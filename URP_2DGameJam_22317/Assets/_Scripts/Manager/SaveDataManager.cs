@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using System.IO;
 
 [System.Serializable]
@@ -100,7 +98,6 @@ public class SaveDataManager : SingletonMono<SaveDataManager>
     public void OnquitEvent()
     {
         SaveData();
-        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
    

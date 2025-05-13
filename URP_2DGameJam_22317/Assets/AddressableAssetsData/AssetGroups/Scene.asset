@@ -17,33 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9b1ddcdcd3205de40bbb65847f0c3048
   m_SerializeEntries:
-  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
-    m_Address: President
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd1e1effcf295a14e875cb8a5d94a482
     m_Address: Menu
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ff5a64619637e5f47869712777a1c240
-    m_Address: 1_3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: edd557aaa40713f498e2b648e90a5941
-    m_Address: 1_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e1c420c2936587b46bcdc02e2b506aac
-    m_Address: 1_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 365b57fcda5020d4d9fc1c6c0d092d21
-    m_Address: Map
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -52,8 +27,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1c420c2936587b46bcdc02e2b506aac
+    m_Address: 1_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edd557aaa40713f498e2b648e90a5941
+    m_Address: 1_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff5a64619637e5f47869712777a1c240
+    m_Address: 1_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 658727cd5b9789e47ab3c05807bb0b73
     m_Address: 1_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 365b57fcda5020d4d9fc1c6c0d092d21
+    m_Address: Map
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_Address: President
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

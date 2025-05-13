@@ -2932,6 +2932,7 @@ GameObject:
   - component: {fileID: 1218564054}
   - component: {fileID: 1218564055}
   - component: {fileID: 1218564056}
+  - component: {fileID: 1218564057}
   m_Layer: 0
   m_Name: 1_4
   m_TagString: Untagged
@@ -2996,6 +2997,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Level1_4, Assembly-CSharp
         m_MethodName: SetIsTimeOut
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1218564057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218564053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070701e576479374eb3f239e6955faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 0725aee4eb047244881c456d0885db42, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1218564055}
+        m_TargetAssemblyTypeName: BaseLevel, Assembly-CSharp
+        m_MethodName: OnGameWinEvent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

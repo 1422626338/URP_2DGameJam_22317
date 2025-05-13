@@ -37,5 +37,9 @@ public class BaseLevel : MonoBehaviour
             LevelManager.Instance.p2.GetComponent<Light2D>().pointLightOuterRadius = curTimeCount / timeCount * ligthRadiu;
         }
     }
+    public void OnGameWinEvent()
+    {
+        isTimeOut = true;
+    }
 
 }
