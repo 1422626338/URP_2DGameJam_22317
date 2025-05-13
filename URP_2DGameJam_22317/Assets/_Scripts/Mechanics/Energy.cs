@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
- /// <summary>
- ///注释
- /// <summary>
 
 public class Energy : MonoBehaviour
 {
@@ -22,29 +18,30 @@ public class Energy : MonoBehaviour
         curReviveTimeCount = reviveTimeCount;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     private void Update()
     {
-        if(isPlayer1 && !isUsed)
+        if (isPlayer1 && !isUsed)
         {
-            if(Input.GetKeyDown(KeyCode.E)) 
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 var level = GetComponentInParent<BaseLevel>();
-                level.curTimeCount += healTime;
-                //TODO：恢复音效
+                // 添加数值上限限制
+                level.curTimeCount = Mathf.Min(level.curTimeCount + healTime, level.timeCount);
+
                 if (AudioController.Instance != null)
                 {
                     AudioController.Instance.PlaySFX(AudioController.Instance.heal);
                 }
                 isUsed = true;
                 spriteRenderer.enabled = false;
-
             }
         }
 
-        if(canRevive && isUsed)
+        if (canRevive && isUsed)
         {
-            curReviveTimeCount -= Time.deltaTime ;
-            if(curReviveTimeCount < 0)
+            curReviveTimeCount -= Time.deltaTime;
+            if (curReviveTimeCount < 0)
             {
                 isUsed = false;
                 spriteRenderer.enabled = true;
@@ -52,6 +49,7 @@ public class Energy : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player1"))

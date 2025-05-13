@@ -3324,7 +3324,6 @@ MonoBehaviour:
   GamingPanel: {fileID: 1682933890}
   GameWinPanel: {fileID: 1432677534}
   GameOverPanel: {fileID: 285349157}
-  SettingPanel: {fileID: 501125773}
   StaffPanel: {fileID: 1444022}
   Light2D: {fileID: 1829275518}
   light2D: {fileID: 0}

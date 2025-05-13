@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canRevive: 1
   reviveTimeCount: 20
-  healTime: 10
+  healTime: 30
 --- !u!1001 &1018002345467404781
 PrefabInstance:
   m_ObjectHideFlags: 0
