@@ -2251,7 +2251,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1049639052 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 42274463939857765, guid: 0452504354f7b4445be9cc9bebb2bb6e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2831628567282600003, guid: 0452504354f7b4445be9cc9bebb2bb6e, type: 3}
   m_PrefabInstance: {fileID: 1049639049}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1049639053 stripped
@@ -3417,7 +3417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1566183008
 MonoBehaviour:
   m_ObjectHideFlags: 0

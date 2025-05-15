@@ -1,31 +1,31 @@
-using UnityEngine.AddressableAssets;
 using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using System.Threading.Tasks;
-
-/// <summary>
-///注释
-/// <summary>
 
 public class SceneLoadManager : SingletonMono<SceneLoadManager>
 {
     public GameObject unlockPanel;
 
-    public AssetReference menu; //菜单场景
-    public AssetReference map; //地图场景
-    public AssetReference level1_1;//第一关场景
+    public AssetReference menu;
+    public AssetReference president;
+    public AssetReference map;
+    public AssetReference level1_1;
 
-    private AssetReference currentScene; //当前场景
+    private AssetReference currentScene;
     private SceneInstance currentSceneInstance;
-
-    private bool isLoading = false; // 防止多次并发加载
+    private bool isLoading = false;
 
     public ObjectEventSO OnLoadLevelafterEvent;
 
+    // 记录 boot 加载的 persistent President Scene 名字
+    private string persistentSceneName = "President"; // 或用 runtimeKey 也行
+
     private void OnEnable()
     {
+        // 不再加载 President，由 Boot 负责
         LoadMenu();
     }
 
@@ -34,6 +34,7 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
         if (currentScene == null) return;
 
         isLoading = true;
+        Debug.Log($"开始加载场景：{currentScene.RuntimeKey}");
 
         AsyncOperationHandle<SceneInstance> handle =
             Addressables.LoadSceneAsync(currentScene, LoadSceneMode.Additive);
@@ -43,7 +44,11 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
             currentSceneInstance = handle.Result;
-            SceneManager.SetActiveScene(handle.Result.Scene);
+            Debug.Log($"成功加载场景：{handle.Result.Scene.name}");
+        }
+        else
+        {
+            Debug.LogError($"加载场景失败：{currentScene.RuntimeKey}");
         }
 
         isLoading = false;
@@ -53,6 +58,17 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
     {
         if (currentSceneInstance.Scene.IsValid())
         {
+            var sceneName = currentSceneInstance.Scene.name;
+
+            // 不允许卸载 President
+            if (sceneName == persistentSceneName ||
+                (currentScene != null && currentScene.RuntimeKey.ToString() == president.RuntimeKey.ToString()))
+            {
+                Debug.LogWarning($"阻止卸载持久场景：{sceneName}");
+                return;
+            }
+
+            Debug.Log($"卸载场景：{sceneName}");
             AsyncOperationHandle<SceneInstance> unloadHandle =
                 Addressables.UnloadSceneAsync(currentSceneInstance);
 
@@ -62,7 +78,14 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
 
     private async Task SafeLoadScene(AssetReference targetScene)
     {
-        if (isLoading) return;
+        if (isLoading || targetScene == null) return;
+
+        // 阻止意外传入 president
+        if (targetScene.RuntimeKey.ToString() == president.RuntimeKey.ToString())
+        {
+            Debug.LogWarning("禁止通过 SceneLoadManager 加载 President 场景");
+            return;
+        }
 
         isLoading = true;
 
@@ -77,23 +100,15 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
         isLoading = false;
     }
 
-    public async void LoadMenu()
-    {
-        await SafeLoadScene(menu);
-    }
-
-    public async void LoadMap()
-    {
-        await SafeLoadScene(map);
-    }
+    public async void LoadMenu() => await SafeLoadScene(menu);
+    public async void LoadMap() => await SafeLoadScene(map);
 
     public async void LoadLevel(object levelSceneObj)
     {
         if (levelSceneObj is AssetReference levelScene)
         {
             await SafeLoadScene(levelScene);
-            OnLoadLevelafterEvent.RaiseEvent(null, this);
-
+            OnLoadLevelafterEvent?.RaiseEvent(null, this);
         }
     }
 
@@ -101,23 +116,23 @@ public class SceneLoadManager : SingletonMono<SceneLoadManager>
     {
         if (levelSceneObj is level levelScene)
         {
-            if(levelScene.levelState != LevelState.locked)
+            if (levelScene.levelState != LevelState.locked)
             {
                 await SafeLoadScene(levelScene.curScene);
-                OnLoadLevelafterEvent.RaiseEvent(null, this);
+                OnLoadLevelafterEvent?.RaiseEvent(null, this);
             }
             else
             {
                 Debug.Log("该关卡未解锁");
-                unlockPanel.SetActive(true);
+                if (unlockPanel != null)
+                    unlockPanel.SetActive(true);
             }
-            
         }
     }
 
-    public async void  NewGame()
+    public async void NewGame()
     {
         await SafeLoadScene(level1_1);
-        OnLoadLevelafterEvent.RaiseEvent(null, this);
+        OnLoadLevelafterEvent?.RaiseEvent(null, this);
     }
 }

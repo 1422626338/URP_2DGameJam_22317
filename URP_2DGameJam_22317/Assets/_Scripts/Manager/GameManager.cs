@@ -22,7 +22,14 @@ public class GameManager : SingletonMono<GameManager>
     public Light2D light2D;
     private void OnEnable()
     {
+        Light2D.SetActive(true);
         light2D = Light2D.GetComponent<Light2D>();
+        light2D.intensity = 1;
+    }
+
+    private void Update()
+    {
+       
     }
     public void HideGameObject()
     {
@@ -62,6 +69,8 @@ public class GameManager : SingletonMono<GameManager>
 
     public void setLigth2DClose()
     {
-        light2D.intensity = 0f;
+        light2D.intensity = 0.03f;
     }
+
+    
 }

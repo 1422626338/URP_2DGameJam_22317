@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class PlatformDetector : MonoBehaviour
 {
-    // ¼ÇÂ¼µ±Ç°Æ½Ì¨ÊÇ·ñÓĞÅö×²Ìå£¨Íæ¼Ò£©½øÈë
+    // è®°å½•å½“å‰å¹³å°æ˜¯å¦æœ‰ç¢°æ’ä½“ï¼ˆç©å®¶ï¼‰è¿›å…¥
     public bool hasPlayer = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Èç¹ûÅö×²Ìå±êÇ©Îª "Player"£¬Ôò±ê¼ÇÎª¼ì²âµ½
+        // å¦‚æœç¢°æ’ä½“æ ‡ç­¾ä¸º "Player"ï¼Œåˆ™æ ‡è®°ä¸ºæ£€æµ‹åˆ°
         if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             hasPlayer = true;
-            //HACK:¸ü¸Ä¸¸ÎïÌå£¬·ÀÖ¹³öÏÖ¶¶¶¯
-            collision.transform.parent = this.transform;
+            //HACK:æ›´æ”¹çˆ¶ç‰©ä½“ï¼Œé˜²æ­¢å‡ºç°æŠ–åŠ¨
+            collision.transform.position = this.transform.position;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Íæ¼ÒÀë¿ªºó£¬½«±ê¼ÇÖÃÎª false
+        // ç©å®¶ç¦»å¼€åï¼Œå°†æ ‡è®°ç½®ä¸º false
         if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             hasPlayer = false;
-            //TODO:ÍË³ö¸¸ÎïÌå
+            //TODO:é€€å‡ºçˆ¶ç‰©ä½“
             if (collision.transform.parent != null)
             {
-                collision.transform.parent = null;  //ÕâÀï±¨´í²»Ì«Ãô¸Ğ£¬ÏÈ²»×ö´¦Àí
+                collision.transform.parent = null;  //è¿™é‡ŒæŠ¥é”™ä¸å¤ªæ•æ„Ÿï¼Œå…ˆä¸åšå¤„ç†
             }
         }
     }
     //HACK:
-    #region Èç¹û½ÇÉ«Õ¾ÔÚËøÁ´Æ½Ì¨Í£Ö¹ÔËĞĞÓÎÏ·£¬·¢Éú´íÎóÊ±£¬Ê¹ÓÃ
+    #region å¦‚æœè§’è‰²ç«™åœ¨é”é“¾å¹³å°åœæ­¢è¿è¡Œæ¸¸æˆï¼Œå‘ç”Ÿé”™è¯¯æ—¶ï¼Œä½¿ç”¨
     //private IEnumerator DetachPlayerAfterDelay(Transform playerTransform)
     //{
-    //    yield return null;  // µÈ´ıÒ»Ö¡
+    //    yield return null;  // ç­‰å¾…ä¸€å¸§
     //    if (playerTransform != null)
     //    {
     //        playerTransform.parent = null;
